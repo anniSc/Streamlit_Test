@@ -1,10 +1,16 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
+from PIL import Image
 
-st.title('My first app')
+st.title('ML4B 2023')
 
-st.write("Here's our first attempt at using data to create a table:")
+#checkbox
+if st.checkbox('Show Image'):
+    image = Image.open('./images/puppy.jpeg')
+    st.image(image, caption='Running Puppy')
+
+st.write("Here's my data:")
 df = pd.DataFrame({
     'first column': [1, 2, 3, 4],
     'second column': [10, 20, 30, 40]
@@ -12,37 +18,14 @@ df = pd.DataFrame({
 st.write(df)
 
 #Line chart
-chart_data = pd.DataFrame(
-     np.random.randn(20, 3),
-     columns=['a', 'b', 'c'])
+chart_data = df
 
 st.line_chart(chart_data)
-
-#map
-map_data = pd.DataFrame(
-    np.random.randn(1000, 2) / [50, 50] + [37.76, -122.4],
-    columns=['lat', 'lon'])
-
-st.map(map_data)
-
-#checkbox
-if st.checkbox('Show dataframe'):
-    chart_data = pd.DataFrame(
-       np.random.randn(20, 3),
-       columns=['a', 'b', 'c'])
-
-    st.line_chart(chart_data)
     
-#selectbox
-#option = st.selectbox(
-#    'Which number do you like best?',
-#     df['first column'])
-
-#'You selected: ', option
 
 #widget in sidebar
 option = st.sidebar.selectbox(
-    'Which number do you like best?',
+    'Which column do you like best?',
      df['first column'])
 
 'You selected:', option
