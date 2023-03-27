@@ -7,7 +7,7 @@ st.title('ML4B 2023')
 
 #checkbox
 if st.checkbox('Show Image'):
-    image = Image.open('./puppy.jpeg')
+    image = Image.open('./puppy.jpg')
     st.image(image, caption='Running Puppy')
 
 st.write("Here's my data:")
