@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 from PIL import Image
 
-st.title('ML4B 2024')
+st.title('ML4B 2025')
 
 #checkbox
 if st.checkbox('Show Image'):
